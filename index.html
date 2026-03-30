@@ -58,22 +58,34 @@
     role="navigation"
     aria-label="Navegación de la línea de tiempo"
   >
-    <!-- Prev button -->
-    <button
-      class="nav-btn"
-      id="nav-prev"
-      type="button"
-      aria-label="Entrada anterior"
-      disabled
-    >
-      <span class="nav-btn-icon" aria-hidden="true">←</span>
-      <span>Anterior</span>
-    </button>
+    <!-- Prev / Counter / Next group -->
+    <div class="nav-btn-group">
+      <button
+        class="nav-btn"
+        id="nav-prev"
+        type="button"
+        aria-label="Entrada anterior"
+        disabled
+      >
+        <span class="nav-btn-icon" aria-hidden="true">←</span>
+        <span>Anterior</span>
+      </button>
 
-    <!-- Entry counter -->
-    <span class="nav-counter" id="nav-counter" aria-live="polite" aria-atomic="true">
-      — / —
-    </span>
+      <span class="nav-counter" id="nav-counter" aria-live="polite" aria-atomic="true">
+        — / —
+      </span>
+
+      <button
+        class="nav-btn"
+        id="nav-next"
+        type="button"
+        aria-label="Entrada siguiente"
+        disabled
+      >
+        <span>Siguiente</span>
+        <span class="nav-btn-icon" aria-hidden="true">→</span>
+      </button>
+    </div>
 
     <!-- Period jump pills -->
     <div
@@ -94,18 +106,6 @@
     >
       <span>Ver detalle</span>
       <span aria-hidden="true">↗</span>
-    </button>
-
-    <!-- Next button -->
-    <button
-      class="nav-btn"
-      id="nav-next"
-      type="button"
-      aria-label="Entrada siguiente"
-      disabled
-    >
-      <span>Siguiente</span>
-      <span class="nav-btn-icon" aria-hidden="true">→</span>
     </button>
   </nav>
 
