@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Línea de tiempo interactiva de la historia de la geometría, desde la prehistoria hasta 1872." />
+  <title>Geometría a Través del Tiempo</title>
+
+  <!-- Google Fonts: Crimson Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/card.css" />
+  <link rel="stylesheet" href="css/navigation.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ── Site Header ── -->
+  <header class="site-header" role="banner">
+    <div>
+      <h1 class="site-title">Geometría a Través del Tiempo</h1>
+      <p class="site-subtitle">De la Prehistoria al Programa de Erlangen</p>
+    </div>
+  </header>
+
+  <!-- ── Main Timeline ── -->
+  <main class="timeline-main" id="main-content" role="main">
+    <div
+      class="timeline-wrapper"
+      id="timeline-wrapper"
+      role="region"
+      aria-label="Línea de tiempo interactiva"
+    >
+      <!-- Timeline content is rendered dynamically by timeline.js -->
+      <!-- Static fallback message shown if JS is disabled -->
+      <noscript>
+        <div style="padding: 3rem; text-align: center; font-family: serif; color: rgba(255,255,254,0.7);">
+          <p>Esta aplicación requiere JavaScript para mostrar la línea de tiempo interactiva.</p>
+        </div>
+      </noscript>
+    </div>
+  </main>
+
+  <!-- ── Bottom Navigation Bar ── -->
+  <nav
+    class="timeline-nav"
+    id="timeline-nav"
+    role="navigation"
+    aria-label="Navegación de la línea de tiempo"
+  >
+    <!-- Prev button -->
+    <button
+      class="nav-btn"
+      id="nav-prev"
+      type="button"
+      aria-label="Entrada anterior"
+      disabled
+    >
+      <span class="nav-btn-icon" aria-hidden="true">←</span>
+      <span>Anterior</span>
+    </button>
+
+    <!-- Entry counter -->
+    <span class="nav-counter" id="nav-counter" aria-live="polite" aria-atomic="true">
+      — / —
+    </span>
+
+    <!-- Period jump pills -->
+    <div
+      class="nav-periods"
+      id="nav-periods"
+      role="group"
+      aria-label="Saltar a período"
+    >
+      <!-- Pills are rendered dynamically by navigation.js -->
+    </div>
+
+    <!-- Open detail button -->
+    <button
+      class="nav-open-btn"
+      id="nav-open"
+      type="button"
+      aria-label="Ver detalle de la entrada activa"
+    >
+      <span>Ver detalle</span>
+      <span aria-hidden="true">↗</span>
+    </button>
+
+    <!-- Next button -->
+    <button
+      class="nav-btn"
+      id="nav-next"
+      type="button"
+      aria-label="Entrada siguiente"
+      disabled
+    >
+      <span>Siguiente</span>
+      <span class="nav-btn-icon" aria-hidden="true">→</span>
+    </button>
+  </nav>
+
+  <!-- ── Detail Modal ── -->
+  <div
+    class="modal-overlay"
+    id="modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Detalle del hito"
+    aria-hidden="true"
+  >
+    <div class="modal-panel" tabindex="-1">
+      <!-- Close button -->
+      <button
+        class="modal-close-btn"
+        type="button"
+        aria-label="Cerrar detalle"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+
+      <!-- Modal Header -->
+      <header class="modal-header">
+        <div class="modal-period-tag" aria-hidden="true"></div>
+        <div class="modal-year"></div>
+        <h2 class="modal-title"></h2>
+      </header>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <p class="modal-text"></p>
+        <div class="modal-tags" aria-label="Etiquetas"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── App Entry Point ── -->
+  <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

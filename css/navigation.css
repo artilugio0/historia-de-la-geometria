@@ -1,0 +1,157 @@
+/* ── Sticky Bottom Navigation Bar ── */
+.timeline-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: color-mix(in srgb, var(--color-bg) 90%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border);
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-6);
+}
+
+/* ── Prev / Next Buttons ── */
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--color-surface-2);
+  border-color: var(--color-border-hover);
+}
+
+.nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.nav-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.nav-btn-icon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+/* ── Entry Counter ── */
+.nav-counter {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 48px;
+  text-align: center;
+}
+
+/* ── Period Jump Pills ── */
+.nav-periods {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: var(--space-1) 0;
+}
+
+.nav-periods::-webkit-scrollbar {
+  display: none;
+}
+
+.period-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  background: color-mix(in srgb, var(--pill-color) 12%, transparent);
+  color: color-mix(in srgb, var(--pill-color) 80%, var(--color-text));
+  border-color: color-mix(in srgb, var(--pill-color) 25%, transparent);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.period-pill:hover {
+  background: color-mix(in srgb, var(--pill-color) 22%, transparent);
+  border-color: color-mix(in srgb, var(--pill-color) 50%, transparent);
+}
+
+.period-pill:focus-visible {
+  outline: 2px solid var(--pill-color);
+  outline-offset: 2px;
+}
+
+.period-pill.is-active {
+  background: color-mix(in srgb, var(--pill-color) 30%, transparent);
+  border-color: var(--pill-color);
+  color: var(--color-text);
+}
+
+/* ── Open Detail Button ── */
+.nav-open-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--active-period-color, var(--color-surface));
+  border: 1px solid var(--active-period-color, var(--color-border));
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    opacity var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.nav-open-btn:hover {
+  opacity: 1;
+}
+
+.nav-open-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}

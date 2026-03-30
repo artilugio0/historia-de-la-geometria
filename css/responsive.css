@@ -1,0 +1,241 @@
+/* ── Tablet: ≤768px ── */
+@media (max-width: 768px) {
+  :root {
+    --timeline-track-height: auto;
+    --timeline-card-width: 260px;
+    --timeline-entry-spacing: 300px;
+    --nav-height: 64px;
+  }
+
+  /* Header */
+  .site-header {
+    padding: var(--space-3) var(--space-4);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .site-title {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Switch to vertical layout */
+  .timeline-wrapper {
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .timeline-track {
+    height: auto;
+    min-width: unset;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .timeline-axis {
+    display: none;
+  }
+
+  /* Vertical period sections */
+  .period-section {
+    display: block;
+    position: relative;
+    margin-bottom: var(--space-6);
+  }
+
+  .period-header {
+    position: relative;
+    height: auto;
+    padding: var(--space-3) 0;
+    margin-bottom: var(--space-3);
+    border-bottom: 2px solid var(--period-border-color, var(--color-border));
+  }
+
+  .period-label {
+    font-size: var(--font-size-xs);
+  }
+
+  /* Vertical entry layout */
+  .period-entries {
+    position: relative;
+    flex-direction: column;
+    gap: var(--space-4);
+    height: auto;
+  }
+
+  .timeline-entry {
+    position: relative;
+    top: auto;
+    left: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  /* Cards become full-width */
+  .entry-card {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    animation: card-in-mobile 0.3s ease both;
+    border-left: 3px solid var(--entry-period-color, var(--color-border));
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+
+  .entry-card.above,
+  .entry-card.below {
+    bottom: auto;
+    top: auto;
+  }
+
+  @keyframes card-in-mobile {
+    from { opacity: 0; transform: translateX(-8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Hide connectors and dots in vertical mode */
+  .entry-dot,
+  .entry-connector,
+  .entry-year {
+    display: none;
+  }
+
+  /* Active card in vertical mode */
+  .timeline-entry.is-active .entry-card {
+    border-left-width: 4px;
+  }
+
+  /* Navigation bar */
+  .timeline-nav {
+    padding: 0 var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .nav-btn {
+    padding: 0 var(--space-3);
+    font-size: var(--font-size-xs);
+  }
+
+  .nav-open-btn {
+    display: none;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    padding: var(--space-4);
+  }
+
+  .modal-header {
+    padding: var(--space-5) var(--space-5) var(--space-3);
+  }
+
+  .modal-body {
+    padding: var(--space-5);
+  }
+
+  .modal-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .modal-text {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ── Mobile: ≤480px ── */
+@media (max-width: 480px) {
+  :root {
+    --nav-height: 60px;
+  }
+
+  .site-title {
+    font-size: var(--font-size-md);
+  }
+
+  .site-subtitle {
+    font-size: var(--font-size-xs);
+  }
+
+  /* Full-screen modal on mobile */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-panel {
+    max-width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    transform: translateY(100%);
+  }
+
+  .modal-overlay.is-open .modal-panel {
+    transform: translateY(0);
+  }
+
+  .modal-overlay.is-closing .modal-panel {
+    transform: translateY(100%);
+  }
+
+  /* Nav bar mobile */
+  .timeline-nav {
+    padding: 0 var(--space-2);
+    gap: var(--space-1);
+  }
+
+  .nav-btn {
+    height: 36px;
+    padding: 0 var(--space-2);
+  }
+
+  .nav-btn span:not(.nav-btn-icon) {
+    display: none;
+  }
+
+  .nav-counter {
+    min-width: 36px;
+  }
+
+  /* Period pills scroll on mobile */
+  .nav-periods {
+    gap: var(--space-1);
+  }
+
+  .period-pill {
+    font-size: 10px;
+    padding: 0 var(--space-2);
+    height: 24px;
+  }
+
+  /* Cards */
+  .entry-card {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .card-title {
+    font-size: var(--font-size-base);
+  }
+
+  .card-summary {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
