@@ -257,6 +257,13 @@ export function getActiveEntryId() {
  * @param {HTMLElement} el
  */
 function _scrollEntryIntoView(el) {
+  // Mobile vertical layout: scroll the document vertically
+  if (window.innerWidth <= 768) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Desktop horizontal layout: scroll the wrapper
   const wrapper = el.closest('.timeline-wrapper');
   if (!wrapper) {
     el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });

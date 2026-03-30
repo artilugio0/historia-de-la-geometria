@@ -65,11 +65,46 @@
     margin-bottom: 0;
   }
 
-  /* ── Hide axis decorations ── */
-  .entry-dot,
-  .entry-connector,
-  .entry-year {
+  /* ── Vertical timeline line: live on the entry's left border ── */
+  .timeline-entry {
+    border-left: 2px solid var(--color-border);
+    padding-left: var(--space-5);
+  }
+
+  .timeline-entry.is-active {
+    border-left-color: var(--entry-period-color, var(--color-border));
+  }
+
+  /* ── Dot: pin it onto the left border ── */
+  .entry-dot {
+    display: block;
+    position: absolute;
+    left: -8px;   /* centers the 14px dot on the 2px left border */
+    top: var(--space-3);
+    transform: none;
+  }
+
+  /* ── Hide only the diagonal connector ── */
+  .entry-connector {
     display: none;
+  }
+
+  /* ── Year: pull it back into normal flow above the card ──
+     Base CSS has position:absolute so !important is needed.     */
+  .entry-year,
+  .entry-year.above,
+  .entry-year.below {
+    display: block;
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-dim);
+    margin-bottom: var(--space-1);
+    text-align: left;
+    white-space: normal;
   }
 
   /* ── Cards: full-width, in normal flow ── */
@@ -80,14 +115,14 @@
     bottom: auto !important;
     transform: none !important;
     width: 100% !important;
-    border-left: 3px solid var(--entry-period-color, var(--color-border));
-    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    border-left: none;
+    border-radius: var(--radius-lg);
     animation: none;
   }
 
   /* Active card */
   .timeline-entry.is-active .entry-card {
-    border-left-width: 4px;
+    border-color: var(--entry-period-color, var(--color-border-hover));
   }
 
   /* ── Navigation bar ── */
