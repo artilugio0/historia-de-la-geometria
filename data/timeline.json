@@ -1,34 +1,55 @@
 {
+  "title": "Geometría a Través del Tiempo",
+  "subtitle": "De la Prehistoria al Programa de Erlangen",
   "periods": [
     {
       "id": "prehistoria",
       "label": "Prehistoria y Antigüedad",
       "color": "#7B5EA7",
-      "accentColor": "#B89FD8"
+      "accentColor": "#B89FD8",
+      "image": null
+    },
+    {
+      "id": "antiguedad",
+      "label": "Antigüedad",
+      "color": "#6B4E9C",
+      "accentColor": "#A38ED4",
+      "image": null
     },
     {
       "id": "grecia",
       "label": "Grecia Clásica",
       "color": "#2E6B8A",
-      "accentColor": "#6BAAC8"
+      "accentColor": "#6BAAC8",
+      "image": null
+    },
+    {
+      "id": "islamico",
+      "label": "Mundo Islamico",
+      "color": "#6B4E9C",
+      "accentColor": "#A38ED4",
+      "image": null
     },
     {
       "id": "renacimiento",
       "label": "Renacimiento",
       "color": "#8A5A2E",
-      "accentColor": "#C8956B"
+      "accentColor": "#C8956B",
+      "image": null
     },
     {
       "id": "moderna",
-      "label": "Geometría Moderna",
+      "label": "Geometría Moderna (S. XVII-XVIII)",
       "color": "#2E7A4F",
-      "accentColor": "#6BC49A"
+      "accentColor": "#6BC49A",
+      "image": null
     },
     {
       "id": "sigloXIX",
       "label": "Siglo XIX",
       "color": "#8A2E2E",
-      "accentColor": "#C86B6B"
+      "accentColor": "#C86B6B",
+      "image": null
     }
   ],
   "entries": [
@@ -43,6 +64,18 @@
       "body": "Gran parte de las bases de la geometría pueden ser prehistóricas. Las primeras civilizaciones utilizaban la geometría con un carácter puramente práctico para resolver problemas concretos: medir tierras, construir edificios, orientarse por las estrellas. No existía aún un sistema abstracto de conceptos, sino un conjunto de reglas empíricas transmitidas de generación en generación. Esta geometría práctica fue el suelo fértil sobre el cual las civilizaciones posteriores construirían el edificio formal de la disciplina.",
       "image": null,
       "tags": ["fundamentos", "práctica", "prehistoria"]
+    },
+    {
+      "id": "egipto-babilonia",
+      "periodId": "antiguedad",
+      "year": -3000,
+      "yearLabel": "~3000-2000 a.C.",
+      "sortKey": -3000,
+      "title": "Orígenes Prácticos en Egipto y Babilonia",
+      "summary": "Geometría aplicada para agrimensura, construcción de pirámides y cálculo de áreas y volúmenes.",
+      "body": "Las civilizaciones egipcia y babilonia desarrollaron geometría práctica para agrimensura, construcción de pirámides y templos, y cálculo de áreas/volúmenes (Papiro Rhind, tablillas babilonias). Incluían aproximaciones al π y relaciones pitagóricas. La geometría nace aquí como 'medición de la tierra', no como ciencia abstracta.",
+      "image": null,
+      "tags": ["Egipto", "Babilonia", "práctica", "agrimensura"]
     },
     {
       "id": "grecia-antigua",
@@ -67,6 +100,18 @@
       "body": "Alrededor del año 300 a.C., Euclides de Alejandría redactó 'Los Elementos', una obra de 13 volúmenes que se convertiría en el texto matemático más influyente de todos los tiempos. En ella, Euclides cristaliza conceptos abstractos como punto, recta y círculo, y establece los 5 postulados sobre los que edifica toda la geometría euclídea. El método axiomático de Euclides —partir de definiciones y postulados para llegar por deducción lógica a teoremas— estableció el estándar del pensamiento matemático riguroso durante más de dos milenios. El quinto postulado, sobre las paralelas, sería el semillero de las geometrías no euclídeas siglos después.",
       "image": null,
       "tags": ["Euclides", "postulados", "axiomas", "deducción", "Los Elementos"]
+    },
+    {
+      "id": "islamico",
+      "periodId": "islamico",
+      "year": 900,
+      "yearLabel": "Siglos IX-XII",
+      "sortKey": 900,
+      "title": "Matemáticos del Mundo Islámico",
+      "summary": "Al-Juarismi, Omar Khayyam y Nasir al-Din al-Tusi preservan y amplían los Elementos de Euclides, con avances en cónicas y trigonometría.",
+      "body": "Durante la Edad de Oro del Islam, matemáticos como Al-Juarismi, Thabit ibn Qurra, Omar Khayyam y Nasir al-Din al-Tusi tradujeron, comentaron y enriquecieron los Elementos de Euclides. Realizaron avances en el estudio de cónicas, trigonometría esférica y geometría algebraica incipiente. Algunos, como al-Tusi, trabajaron en alternativas al quinto postulado, sirviendo de puente esencial entre la geometría griega y el Renacimiento europeo.",
+      "image": null,
+      "tags": ["Al-Juarismi", "Khayyam", "al-Tusi", "preservación", "trigonometría"]
     },
     {
       "id": "renacimiento-1",
@@ -153,6 +198,18 @@
       "tags": ["Lobachevsky", "Bolyai", "hiperbólica", "no euclídea", "postulado"]
     },
     {
+      "id": "beltrami-1868",
+      "periodId": "sigloXIX",
+      "year": 1868,
+      "yearLabel": "1868",
+      "sortKey": 1868,
+      "title": "Beltrami y los Modelos de Geometría Hiperbólica",
+      "summary": "Eugenio Beltrami proporciona los primeros modelos concretos (pseudoesfera y modelo proyectivo) de la geometría hiperbólica, probando su consistencia.",
+      "body": "En 1868, el matemático italiano Eugenio Beltrami publicó modelos concretos de la geometría hiperbólica de Lobachevsky y Bolyai (incluyendo la pseudoesfera y el modelo proyectivo, hoy conocido como Beltrami-Klein). Estos modelos permitieron visualizar y demostrar que las geometrías no euclidianas son tan consistentes como la euclídea, al interpretarlas dentro del marco euclidiano. Esto validó definitivamente las nuevas geometrías y facilitó su aceptación.",
+      "image": null,
+      "tags": ["Beltrami", "modelos", "hiperbólica", "pseudoesfera"]
+    },
+    {
       "id": "riemann-1854",
       "periodId": "sigloXIX",
       "year": 1854,
@@ -175,6 +232,18 @@
       "body": "En 1872, Felix Klein publicó su 'Vergleichende Betrachtungen über neuere geometrische Forschungen', conocido como el Programa de Erlangen. En este documento, Klein propuso una definición unificadora: cada geometría puede caracterizarse por un grupo de transformaciones que preservan ciertas propiedades. La geometría euclídea queda definida por las isometrías; la proyectiva, por las homografías; la afín, por las transformaciones afines. Este enfoque grupista no sólo clasificó todas las geometrías conocidas, sino que proporcionó un criterio para reconocer nuevas geometrías en el futuro. El Programa de Erlangen marcó la madurez de la geometría como disciplina capaz de definirse a sí misma con pleno rigor matemático.",
       "image": null,
       "tags": ["Klein", "Erlangen", "grupos", "transformaciones", "clasificación"]
+    },
+    {
+      "id": "hilbert-1899",
+      "periodId": "sigloXIX",
+      "year": 1899,
+      "yearLabel": "1899",
+      "sortKey": 1899,
+      "title": "Hilbert y los Fundamentos de la Geometría",
+      "summary": "David Hilbert publica 'Grundlagen der Geometría', axiomatizando rigurosamente la geometría euclídea con 21 axiomas.",
+      "body": "En 1899, David Hilbert publicó *Grundlagen der Geometrie* (Fundamentos de la Geometría), donde presentó un sistema axiomático completo y riguroso para la geometría euclídea (21 axiomas), eliminando cualquier dependencia de la intuición espacial o visual. Esta obra respondió a las dudas generadas por las geometrías no euclidianas y estableció un nuevo estándar de rigor en los fundamentos de las matemáticas, influyendo profundamente en la lógica y la matemática del siglo XX.",
+      "image": null,
+      "tags": ["Hilbert", "axiomas", "fundamentos", "rigor"]
     }
   ]
 }

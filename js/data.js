@@ -89,6 +89,17 @@ export function getAllPeriods() {
 }
 
 /**
+ * Get the timeline title and subtitle.
+ * @returns {{ title: string, subtitle: string }}
+ */
+export function getTimelineMeta() {
+  return {
+    title: _data?.title ?? '',
+    subtitle: _data?.subtitle ?? '',
+  };
+}
+
+/**
  * @typedef {Object} Period
  * @property {string} id
  * @property {string} label

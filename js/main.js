@@ -3,7 +3,7 @@
  * Navigation never imports modal directly — all wiring happens here.
  */
 
-import { fetchTimeline, getPeriod } from './data.js';
+import { fetchTimeline, getPeriod, getTimelineMeta } from './data.js';
 import { renderTimeline, registerCallbacks } from './timeline.js';
 import { initNavigation, updateNavUI } from './navigation.js';
 import { initModal, openModal, closeModal, isModalOpen } from './modal.js';
@@ -94,6 +94,11 @@ async function init() {
   // ── Load Data & Render ──
   try {
     await fetchTimeline();
+    const { title, subtitle } = getTimelineMeta();
+    const titleEl = document.querySelector('.site-title');
+    const subtitleEl = document.querySelector('.site-subtitle');
+    if (titleEl && title) titleEl.textContent = title;
+    if (subtitleEl && subtitle) subtitleEl.textContent = subtitle;
     renderTimeline(timelineWrapper);
     updateNavUI(navEl);
   } catch (err) {
