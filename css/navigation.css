@@ -104,7 +104,14 @@
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
   padding: var(--space-1) 0;
+  cursor: grab;
+  user-select: none;
+}
+
+.nav-periods:active {
+  cursor: grabbing;
 }
 
 .nav-periods::-webkit-scrollbar {

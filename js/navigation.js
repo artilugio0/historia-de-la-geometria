@@ -9,6 +9,61 @@ import { getActiveEntryId, setActiveEntry } from './timeline.js';
 let _onOpenModal = null;
 
 /**
+ * Scroll the active period pill to the left edge of the container.
+ * @param {HTMLElement} container
+ * @param {string} [periodId]
+ */
+function _scrollActivePill(container, periodId) {
+  if (!container) return;
+  if (!periodId) {
+    container.scrollTo({ left: 0, behavior: 'smooth' });
+    return;
+  }
+  const pill = container.querySelector(`#pill-${periodId}`);
+  if (!pill) return;
+  const target = container.scrollLeft + pill.getBoundingClientRect().left
+    - container.getBoundingClientRect().left;
+  container.scrollTo({ left: target, behavior: 'smooth' });
+}
+
+/**
+ * Enable pointer-drag (mouse + touch) scrolling on the pills container.
+ * @param {HTMLElement} container
+ */
+function _initPillsDrag(container) {
+  let startX = 0;
+  let startScroll = 0;
+  let active = false;
+  let moved = false;
+
+  container.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    active = true;
+    moved = false;
+    startX = e.clientX;
+    startScroll = container.scrollLeft;
+    container.setPointerCapture(e.pointerId);
+    container.style.cursor = 'grabbing';
+  });
+
+  container.addEventListener('pointermove', (e) => {
+    if (!active) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    container.scrollLeft = startScroll - dx;
+  });
+
+  const end = () => { active = false; container.style.cursor = ''; };
+  container.addEventListener('pointerup', end);
+  container.addEventListener('pointercancel', end);
+
+  // Suppress clicks on pills that were actually drags
+  container.addEventListener('click', (e) => {
+    if (moved) { e.stopPropagation(); e.preventDefault(); }
+  }, true);
+}
+
+/**
  * Initialize navigation: prev/next buttons, keyboard, period pills.
  * @param {HTMLElement} navEl - The nav bar element
  * @param {{ onOpenModal?: Function }} callbacks
@@ -21,6 +76,8 @@ export function initNavigation(navEl, { onOpenModal } = {}) {
   const openBtn = navEl.querySelector('#nav-open');
   const counter = navEl.querySelector('#nav-counter');
   const periodsContainer = navEl.querySelector('#nav-periods');
+
+  if (periodsContainer) _initPillsDrag(periodsContainer);
 
   // Prev button
   if (prevBtn) {
@@ -166,6 +223,9 @@ export function updateNavUI(navEl, activeEntry) {
       pill.removeAttribute('aria-current');
     }
   }
+
+  // Scroll active pill to the left edge of the container
+  _scrollActivePill(periodsContainer, currentPeriodId);
 
   // Update open button color
   if (openBtn && activeEntry) {
