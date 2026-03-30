@@ -2,7 +2,7 @@
  * navigation.js — Keyboard and button navigation handlers.
  */
 
-import { getAllEntries, getAllPeriods } from './data.js';
+import { getAllEntries, getAllPeriods, getEntry } from './data.js';
 import { getActiveEntryId, setActiveEntry } from './timeline.js';
 
 /** @type {((entry: import('./data.js').Entry) => void) | null} */
@@ -22,29 +22,6 @@ export function initNavigation(navEl, { onOpenModal } = {}) {
   const counter = navEl.querySelector('#nav-counter');
   const periodsContainer = navEl.querySelector('#nav-periods');
 
-  const entries = getAllEntries();
-  const periods = getAllPeriods();
-
-  // Build period pills
-  if (periodsContainer) {
-    for (const period of periods) {
-      const pill = document.createElement('button');
-      pill.className = 'period-pill';
-      pill.id = `pill-${period.id}`;
-      pill.dataset.periodId = period.id;
-      pill.textContent = period.label;
-      pill.style.setProperty('--pill-color', period.color);
-      pill.setAttribute('type', 'button');
-      pill.setAttribute('aria-label', `Ir al período: ${period.label}`);
-
-      pill.addEventListener('click', () => {
-        jumpToPeriod(period.id);
-      });
-
-      periodsContainer.appendChild(pill);
-    }
-  }
-
   // Prev button
   if (prevBtn) {
     prevBtn.addEventListener('click', () => goToPrev());
@@ -60,7 +37,7 @@ export function initNavigation(navEl, { onOpenModal } = {}) {
     openBtn.addEventListener('click', () => {
       const activeId = getActiveEntryId();
       if (!activeId) return;
-      const entry = entries.find(e => e.id === activeId);
+      const entry = getEntry(activeId);
       if (entry && _onOpenModal) _onOpenModal(entry);
     });
   }
@@ -87,7 +64,7 @@ export function initNavigation(navEl, { onOpenModal } = {}) {
           e.preventDefault();
           const activeId = getActiveEntryId();
           if (!activeId) break;
-          const entry = entries.find(en => en.id === activeId);
+          const entry = getEntry(activeId);
           if (entry && _onOpenModal) _onOpenModal(entry);
         }
         break;
@@ -151,12 +128,29 @@ export function updateNavUI(navEl, activeEntry) {
   const nextBtn = navEl.querySelector('#nav-next');
   const counter = navEl.querySelector('#nav-counter');
   const openBtn = navEl.querySelector('#nav-open');
+  const periodsContainer = navEl.querySelector('#nav-periods');
 
   if (prevBtn) prevBtn.disabled = idx <= 0;
   if (nextBtn) nextBtn.disabled = idx >= entries.length - 1;
   if (counter) counter.textContent = `${idx + 1} / ${entries.length}`;
 
-  // Update period pills
+  // Build period pills once, on first call with real data
+  if (periodsContainer && periodsContainer.children.length === 0 && periods.length > 0) {
+    for (const period of periods) {
+      const pill = document.createElement('button');
+      pill.className = 'period-pill';
+      pill.id = `pill-${period.id}`;
+      pill.dataset.periodId = period.id;
+      pill.textContent = period.label;
+      pill.style.setProperty('--pill-color', period.color);
+      pill.setAttribute('type', 'button');
+      pill.setAttribute('aria-label', `Ir al período: ${period.label}`);
+      pill.addEventListener('click', () => jumpToPeriod(period.id));
+      periodsContainer.appendChild(pill);
+    }
+  }
+
+  // Update period pills active state
   const currentPeriodId = activeEntry
     ? activeEntry.periodId
     : entries[idx]?.periodId;

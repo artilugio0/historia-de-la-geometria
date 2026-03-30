@@ -11,11 +11,13 @@
   justify-content: center;
   padding: var(--space-8);
   opacity: 0;
+  pointer-events: none;
   transition: opacity var(--transition-normal);
 }
 
 .modal-overlay.is-open {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .modal-overlay.is-closing {
