@@ -21,10 +21,17 @@
     overflow-x: hidden;
   }
 
+  /* ── Wrapper: allow vertical content to flow naturally ── */
+  .timeline-wrapper {
+    overflow-y: visible;
+  }
+
   /* ── Track: vertical flex column, full width ── */
   .timeline-track {
+    width: 100%;
     flex-direction: column;
     height: auto;
+    min-width: 0;
     padding: var(--space-4);
     gap: var(--space-6);
   }
