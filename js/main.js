@@ -8,6 +8,50 @@ import { renderTimeline, registerCallbacks } from './timeline.js';
 import { initNavigation, updateNavUI } from './navigation.js';
 import { initModal, openModal, closeModal, isModalOpen } from './modal.js';
 
+let _periodBgImage = null;   // currently shown image
+let _targetImage = null;     // image we're transitioning toward
+let _periodBgTimer = null;
+
+function setPeriodBackground(period) {
+  if (window.innerWidth <= 768) return;
+  const el = document.getElementById('period-bg');
+  if (!el) return;
+  const next = period?.image || null;
+  if (next === _targetImage) return;
+
+  _targetImage = next;
+  clearTimeout(_periodBgTimer);
+
+  _periodBgTimer = setTimeout(() => {
+    // Switched away and back — image already correct, just ensure it's visible
+    if (_targetImage === _periodBgImage) {
+      if (_targetImage) el.classList.add('is-visible');
+      return;
+    }
+
+    if (_periodBgImage) {
+      // Fade out current, then swap in target
+      el.classList.remove('is-visible');
+      _periodBgTimer = setTimeout(() => {
+        _periodBgImage = _targetImage;
+        if (_targetImage) {
+          el.style.backgroundImage = `url('${_targetImage}')`;
+          requestAnimationFrame(() => el.classList.add('is-visible'));
+        } else {
+          el.style.backgroundImage = '';
+        }
+      }, 500);
+    } else {
+      // Nothing currently shown — set and fade in
+      _periodBgImage = _targetImage;
+      if (_targetImage) {
+        el.style.backgroundImage = `url('${_targetImage}')`;
+        requestAnimationFrame(() => el.classList.add('is-visible'));
+      }
+    }
+  }, 350);
+}
+
 async function init() {
   // ── DOM References ──
   const timelineWrapper = document.getElementById('timeline-wrapper');
@@ -34,6 +78,7 @@ async function init() {
       const period = getPeriod(entry.periodId);
       if (period) {
         document.body.style.setProperty('--active-period-color', period.color);
+        setPeriodBackground(period);
       }
     },
     onOpenModal: (entry) => openModal(entry),

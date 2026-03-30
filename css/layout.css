@@ -40,8 +40,29 @@ body {
   font-family: var(--font-family-sans);
 }
 
+/* ── Period Background Image (desktop only) ── */
+.period-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 500ms ease;
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, black 25%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, black 25%, transparent 72%);
+}
+
+.period-bg.is-visible {
+  opacity: 0.18;
+}
+
 /* ── Main Content ── */
 .timeline-main {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-height: 0;
   display: flex;

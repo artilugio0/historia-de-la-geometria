@@ -94,6 +94,7 @@ export function getAllPeriods() {
  * @property {string} label
  * @property {string} color
  * @property {string} accentColor
+ * @property {string} [image] - Optional background image path (desktop only)
  */
 
 /**

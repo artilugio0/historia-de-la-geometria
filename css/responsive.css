@@ -4,6 +4,11 @@
     --nav-height: 64px;
   }
 
+  /* ── Disable period background image on mobile ── */
+  .period-bg {
+    display: none;
+  }
+
   /* ── Restore vertical scroll layout ── */
   body {
     height: auto;
