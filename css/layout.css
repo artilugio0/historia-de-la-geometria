@@ -1,6 +1,6 @@
 /* ── Page Layout ── */
 body {
-  background-color: var(--color-bg);
+  background-color: color-mix(in srgb, var(--active-period-color) 14%, var(--color-bg));
   color: var(--color-text);
   font-family: var(--font-family-serif);
   font-size: var(--font-size-base);
@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: --active-period-color 600ms ease 350ms;
 }
 
 /* ── Site Header ── */

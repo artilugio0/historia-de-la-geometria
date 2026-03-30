@@ -1,3 +1,10 @@
+/* Register as a typed property so color-mix() transitions smoothly */
+@property --active-period-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0F0E17;
+}
+
 :root {
   /* ── Background & Surface ── */
   --color-bg:          #0F0E17;

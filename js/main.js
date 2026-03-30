@@ -3,7 +3,7 @@
  * Navigation never imports modal directly — all wiring happens here.
  */
 
-import { fetchTimeline } from './data.js';
+import { fetchTimeline, getPeriod } from './data.js';
 import { renderTimeline, registerCallbacks } from './timeline.js';
 import { initNavigation, updateNavUI } from './navigation.js';
 import { initModal, openModal, closeModal, isModalOpen } from './modal.js';
@@ -31,6 +31,10 @@ async function init() {
   registerCallbacks({
     onActivate: (entry) => {
       updateNavUI(navEl, entry);
+      const period = getPeriod(entry.periodId);
+      if (period) {
+        document.body.style.setProperty('--active-period-color', period.color);
+      }
     },
     onOpenModal: (entry) => openModal(entry),
   });
