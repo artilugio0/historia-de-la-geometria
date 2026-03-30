@@ -1,6 +1,10 @@
 {
   "title": "Geometría a Través del Tiempo",
   "subtitle": "De la Prehistoria al Programa de Erlangen",
+  "start": {
+    "label": "Inicio",
+    "image": "assets/images/euclides.jpg"
+  },
   "periods": [
     {
       "id": "prehistoria",

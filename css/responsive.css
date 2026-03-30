@@ -67,6 +67,37 @@
     display: none;
   }
 
+  /* ── Start entry: flow naturally in the vertical list ── */
+  .start-entry {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .start-btn {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+    border-left: 2px solid var(--color-border);
+  }
+
+  .start-entry.is-active .start-btn {
+    border-left-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .start-dot {
+    position: static;
+    transform: none;
+    animation: none;
+    flex-shrink: 0;
+  }
+
   /* ── Period section: override JS inline width ──
      JS sets width: Npx as an inline style; !important is required to beat it. */
   .period-section {

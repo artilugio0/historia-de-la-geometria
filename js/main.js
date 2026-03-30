@@ -81,6 +81,11 @@ async function init() {
         setPeriodBackground(period);
       }
     },
+    onActivateStart: (startConfig) => {
+      updateNavUI(navEl);
+      document.body.style.setProperty('--active-period-color', '#0F0E17');
+      setPeriodBackground(startConfig);
+    },
     onOpenModal: (entry) => openModal(entry),
   });
 

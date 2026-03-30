@@ -2,23 +2,30 @@
  * timeline.js — Render the timeline DOM and manage active entry state.
  */
 
-import { getAllEntries, getAllPeriods, getPeriod } from './data.js';
+import { getAllEntries, getAllPeriods, getPeriod, getStart } from './data.js';
 
 /** @type {string | null} */
 let _activeEntryId = null;
 
+/** @type {boolean} */
+let _startActive = false;
+
 /** @type {((entry: import('./data.js').Entry) => void) | null} */
 let _onActivateCallback = null;
+
+/** @type {((startConfig: { label: string, image: string|null }) => void) | null} */
+let _onActivateStartCallback = null;
 
 /** @type {((entry: import('./data.js').Entry) => void) | null} */
 let _onOpenModalCallback = null;
 
 /**
  * Register callbacks for timeline events.
- * @param {{ onActivate?: Function, onOpenModal?: Function }} callbacks
+ * @param {{ onActivate?: Function, onActivateStart?: Function, onOpenModal?: Function }} callbacks
  */
-export function registerCallbacks({ onActivate, onOpenModal } = {}) {
+export function registerCallbacks({ onActivate, onActivateStart, onOpenModal } = {}) {
   if (onActivate) _onActivateCallback = onActivate;
+  if (onActivateStart) _onActivateStartCallback = onActivateStart;
   if (onOpenModal) _onOpenModalCallback = onOpenModal;
 }
 
@@ -55,6 +62,13 @@ export function renderTimeline(container) {
   // Add axis first (positioned absolute relative to track)
   track.appendChild(axis);
 
+  // Add start entry if configured
+  const startConfig = getStart();
+  if (startConfig) {
+    const startEl = _buildStartElement(startConfig);
+    track.appendChild(startEl);
+  }
+
   // Build period sections (flex items)
   for (const period of periods) {
     const periodEntries = byPeriod.get(period.id) || [];
@@ -68,10 +82,70 @@ export function renderTimeline(container) {
   container.innerHTML = '';
   container.appendChild(track);
 
-  // Set first entry as active
-  if (entries.length > 0) {
+  // Set initial active: start entry if present, otherwise first regular entry
+  if (startConfig) {
+    _startActive = true;
+    const startEl = document.getElementById('entry-start');
+    if (startEl) startEl.classList.add('is-active');
+    if (_onActivateStartCallback) _onActivateStartCallback(startConfig);
+  } else if (entries.length > 0) {
     setActiveEntry(entries[0].id, false);
   }
+}
+
+/**
+ * Build the special start entry element.
+ * @param {{ label: string, image: string|null }} startConfig
+ * @returns {HTMLElement}
+ */
+function _buildStartElement(startConfig) {
+  const entrySpacing = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--timeline-entry-spacing')
+  ) || 340;
+
+  const el = document.createElement('div');
+  el.className = 'start-entry';
+  el.id = 'entry-start';
+  el.setAttribute('role', 'listitem');
+  el.style.width = `${Math.round(entrySpacing * 0.65)}px`;
+
+  const btn = document.createElement('button');
+  btn.className = 'start-btn';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', startConfig.label);
+
+  const dot = document.createElement('div');
+  dot.className = 'start-dot';
+  dot.setAttribute('aria-hidden', 'true');
+
+  const labelEl = document.createElement('span');
+  labelEl.className = 'start-label';
+  labelEl.setAttribute('aria-hidden', 'true');
+  labelEl.textContent = startConfig.label;
+
+  btn.appendChild(dot);
+  btn.appendChild(labelEl);
+
+  btn.addEventListener('click', () => {
+    if (_activeEntryId) {
+      const prev = document.getElementById(`entry-${_activeEntryId}`);
+      if (prev) {
+        prev.classList.remove('is-active');
+        const prevCard = prev.querySelector('.entry-card');
+        if (prevCard) {
+          prevCard.setAttribute('aria-pressed', 'false');
+          prevCard.removeAttribute('aria-current');
+        }
+      }
+      _activeEntryId = null;
+    }
+    _startActive = true;
+    el.classList.add('is-active');
+    if (_onActivateStartCallback) _onActivateStartCallback(startConfig);
+  });
+
+  el.appendChild(btn);
+  return el;
 }
 
 /**
@@ -216,6 +290,13 @@ function _buildEntryElement(entry, period, index, entrySpacing, isAbove) {
  * @param {boolean} scroll - Whether to scroll into view (default true)
  */
 export function setActiveEntry(id, scroll = true) {
+  // Clear start entry if it was active
+  if (_startActive) {
+    _startActive = false;
+    const startEl = document.getElementById('entry-start');
+    if (startEl) startEl.classList.remove('is-active');
+  }
+
   // Remove previous active
   if (_activeEntryId) {
     const prev = document.getElementById(`entry-${_activeEntryId}`);

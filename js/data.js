@@ -92,6 +92,14 @@ export function getAllPeriods() {
  * Get the timeline title and subtitle.
  * @returns {{ title: string, subtitle: string }}
  */
+/**
+ * Get the optional start entry config.
+ * @returns {{ label: string, image: string|null } | null}
+ */
+export function getStart() {
+  return _data?.start ?? null;
+}
+
 export function getTimelineMeta() {
   return {
     title: _data?.title ?? '',
