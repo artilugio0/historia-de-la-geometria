@@ -44,7 +44,7 @@ body {
 .timeline-wrapper {
   position: relative;
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: hidden; /* explicit hidden prevents visible→auto promotion when overflow-x is set */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--color-border-hover) transparent;
@@ -67,6 +67,7 @@ body {
 .timeline-track {
   position: relative;
   height: var(--timeline-track-height);
+  min-width: max-content; /* prevents compression inside the scroll container */
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
