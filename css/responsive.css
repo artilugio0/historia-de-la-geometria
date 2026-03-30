@@ -4,6 +4,27 @@
     --nav-height: 64px;
   }
 
+  /* ── Restore vertical scroll layout ── */
+  body {
+    height: auto;
+    overflow: visible;
+  }
+
+  .timeline-main {
+    padding-bottom: calc(var(--nav-height) + var(--space-8));
+  }
+
+  .timeline-wrapper {
+    flex: none;
+  }
+
+  .timeline-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
   /* ── Header ── */
   .site-header {
     padding: var(--space-3) var(--space-4);

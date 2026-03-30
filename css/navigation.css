@@ -1,10 +1,8 @@
 /* ── Sticky Bottom Navigation Bar ── */
 .timeline-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   height: var(--nav-height);
+  flex-shrink: 0;
   background: color-mix(in srgb, var(--color-bg) 90%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
