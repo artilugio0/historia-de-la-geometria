@@ -34,32 +34,45 @@ function _initPillsDrag(container) {
   let startX = 0;
   let startScroll = 0;
   let active = false;
-  let moved = false;
+  let dragging = false;
+  let suppressNextClick = false;
 
   container.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;
     active = true;
-    moved = false;
+    dragging = false;
     startX = e.clientX;
     startScroll = container.scrollLeft;
-    container.setPointerCapture(e.pointerId);
-    container.style.cursor = 'grabbing';
+    // Do NOT capture yet — wait until real movement so button clicks still fire
   });
 
   container.addEventListener('pointermove', (e) => {
     if (!active) return;
     const dx = e.clientX - startX;
-    if (Math.abs(dx) > 4) moved = true;
-    container.scrollLeft = startScroll - dx;
+    if (!dragging && Math.abs(dx) > 4) {
+      dragging = true;
+      container.setPointerCapture(e.pointerId);
+      container.style.cursor = 'grabbing';
+    }
+    if (dragging) container.scrollLeft = startScroll - dx;
   });
 
-  const end = () => { active = false; container.style.cursor = ''; };
+  const end = () => {
+    if (dragging) suppressNextClick = true;
+    active = false;
+    dragging = false;
+    container.style.cursor = '';
+  };
   container.addEventListener('pointerup', end);
   container.addEventListener('pointercancel', end);
 
-  // Suppress clicks on pills that were actually drags
+  // Suppress the click that follows a drag (fires after pointerup)
   container.addEventListener('click', (e) => {
-    if (moved) { e.stopPropagation(); e.preventDefault(); }
+    if (suppressNextClick) {
+      suppressNextClick = false;
+      e.stopPropagation();
+      e.preventDefault();
+    }
   }, true);
 }
 
