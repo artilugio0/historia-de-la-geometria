@@ -182,6 +182,14 @@ function _buildEntryElement(entry, period, index, entrySpacing, isAbove) {
   hint.innerHTML = '<span>Ver detalle</span><span class="card-hint-arrow">→</span>';
 
   card.appendChild(tag);
+  if (entry.image) {
+    const thumb = document.createElement('img');
+    thumb.className = 'card-thumbnail';
+    thumb.src = entry.image;
+    thumb.alt = '';
+    thumb.setAttribute('aria-hidden', 'true');
+    card.appendChild(thumb);
+  }
   card.appendChild(title);
   card.appendChild(summary);
   card.appendChild(hint);

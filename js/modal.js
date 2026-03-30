@@ -82,6 +82,21 @@ export function openModal(entry) {
     }
   }
 
+  // Image
+  const imageEl = _panel.querySelector('.modal-image');
+  const imageWrap = _panel.querySelector('.modal-image-wrap');
+  if (imageEl && imageWrap) {
+    if (entry.image) {
+      imageEl.src = entry.image;
+      imageEl.alt = entry.title;
+      imageWrap.hidden = false;
+    } else {
+      imageEl.src = '';
+      imageEl.alt = '';
+      imageWrap.hidden = true;
+    }
+  }
+
   // Update ARIA
   _overlay.setAttribute('aria-hidden', 'false');
   _panel.setAttribute('aria-label', entry.title);
