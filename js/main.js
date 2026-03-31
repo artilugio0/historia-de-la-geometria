@@ -160,11 +160,20 @@ async function init() {
   // ── Load Data & Render ──
   try {
     await fetchTimeline();
-    const { title, subtitle, defaultTheme } = getTimelineMeta();
+    const { title, subtitle, defaultTheme, author } = getTimelineMeta();
     const titleEl = document.querySelector('.site-title');
     const subtitleEl = document.querySelector('.site-subtitle');
+    const authorEl = document.querySelector('.site-author');
     if (titleEl && title) titleEl.textContent = title;
     if (subtitleEl && subtitle) subtitleEl.textContent = subtitle;
+    if (authorEl) {
+      if (author) {
+        authorEl.textContent = author;
+        authorEl.hidden = false;
+      } else {
+        authorEl.hidden = true;
+      }
+    }
     initTheme(defaultTheme);
     preloadBgImages();
     renderTimeline(timelineWrapper);

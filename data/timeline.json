@@ -2,6 +2,7 @@
   "title": "Geometría a Través del Tiempo",
   "subtitle": "De las antiguas civilizaciones a la actualidad",
   "defaultTheme": "dark",
+  "author": "Nicolas Schmidt",
   "start": {
     "label": "Inicio",
     "image": "assets/images/geometry1.jpg"

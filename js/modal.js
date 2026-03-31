@@ -44,6 +44,11 @@ export function initModal(overlayEl) {
 
   // Keyboard inside modal
   overlayEl.addEventListener('keydown', _handleModalKeydown);
+
+  // Back button / swipe-back on mobile: close modal instead of leaving the page
+  window.addEventListener('popstate', () => {
+    if (isModalOpen()) closeModal({ fromPopstate: true });
+  });
 }
 
 /**
@@ -104,6 +109,9 @@ export function openModal(entry) {
   // Store previous focus
   _previousFocus = document.activeElement;
 
+  // Push a history state so the back button closes the modal instead of leaving the page
+  history.pushState({ modal: true }, '');
+
   // Show overlay
   _overlay.classList.remove('is-closing');
   _overlay.classList.add('is-open');
@@ -119,9 +127,13 @@ export function openModal(entry) {
 /**
  * Close the modal with animation.
  */
-export function closeModal() {
+export function closeModal({ fromPopstate = false } = {}) {
   if (!_overlay) return;
   if (!_overlay.classList.contains('is-open')) return;
+
+  // If the user closed via button/backdrop (not the back button), pop the
+  // history state we pushed on open so the back button behaves normally.
+  if (!fromPopstate) history.back();
 
   _overlay.classList.remove('is-open');
   _overlay.classList.add('is-closing');

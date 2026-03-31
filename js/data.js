@@ -105,6 +105,7 @@ export function getTimelineMeta() {
     title: _data?.title ?? '',
     subtitle: _data?.subtitle ?? '',
     defaultTheme: _data?.defaultTheme ?? 'dark',
+    author: _data?.author ?? '',
   };
 }
 

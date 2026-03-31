@@ -40,6 +40,13 @@ body {
   font-family: var(--font-family-sans);
 }
 
+.site-author {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-dim);
+  font-family: var(--font-family-sans);
+  margin-top: var(--space-1);
+}
+
 .theme-toggle {
   margin-left: auto;
   flex-shrink: 0;
