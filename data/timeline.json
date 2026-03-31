@@ -11,57 +11,57 @@
     {
       "id": "primeras_civilizaciones",
       "label": "Geometría en las Primeras Civilizaciones",
-      "color": "#7B5EA7",
-      "accentColor": "#B89FD8",
+      "color": "#9A7010",
+      "accentColor": "#D4A830",
       "image": "assets/images/antiguas.jpg"
     },
     {
       "id": "grecia",
       "label": "Geometría en Grecia",
-      "color": "#2E6B8A",
-      "accentColor": "#6BAAC8",
+      "color": "#0E7878",
+      "accentColor": "#3CBABA",
       "image": "assets/images/greece.jpg"
     },
     {
       "id": "edad_media",
       "label": "Edad Media",
-      "color": "#6B4E9C",
-      "accentColor": "#A38ED4",
+      "color": "#782060",
+      "accentColor": "#BC60A8",
       "image": "assets/images/media.jpg"
     },
     {
       "id": "renacimiento",
       "label": "El Renacimiento",
-      "color": "#8A5A2E",
-      "accentColor": "#C8956B",
+      "color": "#9A4818",
+      "accentColor": "#D07848",
       "image": "assets/images/renaissance.jpg"
     },
     {
       "id": "edad_moderna",
       "label": "La Edad Moderna",
-      "color": "#2E7A4F",
-      "accentColor": "#6BC49A",
+      "color": "#1A7840",
+      "accentColor": "#4EBC78",
       "image": "assets/images/cartesiano.png"
     },
     {
       "id": "siglo_xix",
       "label": "La Revolución del Siglo XIX",
-      "color": "#8A2E2E",
-      "accentColor": "#C86B6B",
+      "color": "#901818",
+      "accentColor": "#C85050",
       "image": "assets/images/riemmsurf.png"
     },
     {
       "id": "siglo_xx",
       "label": "El Siglo XX: Abstracción y Estructura",
-      "color": "#2E4A7A",
-      "accentColor": "#6B8AC8",
+      "color": "#183880",
+      "accentColor": "#5880CC",
       "image": "assets/images/mandelbrot.jpg"
     },
     {
       "id": "siglo_xxi",
       "label": "Siglo XXI",
-      "color": "#4A2E8A",
-      "accentColor": "#8B6BC8",
+      "color": "#5818A0",
+      "accentColor": "#9C58E0",
       "image": "assets/images/poincare.png"
     }
   ],
