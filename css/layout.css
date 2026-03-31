@@ -40,6 +40,37 @@ body {
   font-family: var(--font-family-sans);
 }
 
+.theme-toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-hover);
+  background: transparent;
+  color: var(--color-text-dim);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  color: var(--color-text-muted);
+  border-color: var(--color-border-hover);
+  background: var(--color-surface-2);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
 /* ── Period Background Image (desktop only) ── */
 .period-bg {
   position: fixed;
@@ -57,6 +88,10 @@ body {
 
 .period-bg.is-visible {
   opacity: 0.18;
+}
+
+[data-theme="light"] .period-bg.is-visible {
+  opacity: 0.22;
 }
 
 /* ── Start Entry ── */

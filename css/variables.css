@@ -106,3 +106,20 @@
   --z-nav:      100;
   --z-modal:    200;
 }
+
+/* ── Light Theme ── */
+[data-theme="light"] {
+  --active-period-color: #F8F7FF;
+
+  --color-bg:          #F8F7FF;
+  --color-surface:     #FFFFFF;
+  --color-surface-2:   #EEEDF7;
+  --color-border:      rgba(0, 0, 0, 0.08);
+  --color-border-hover:rgba(0, 0, 0, 0.20);
+
+  --color-text:        #16151E;
+  --color-text-muted:  rgba(22, 21, 30, 0.55);
+  --color-text-dim:    rgba(22, 21, 30, 0.30);
+
+  --color-focus:       #16151E;
+}
