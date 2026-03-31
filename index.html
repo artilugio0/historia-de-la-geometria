@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Línea de tiempo interactiva de la historia de la geometría, desde la prehistoria hasta 1872." />
   <title>Geometría a Través del Tiempo</title>
+
+  <!-- Apply saved theme before first paint to prevent flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Google Fonts: Crimson Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +46,12 @@
       <h1 class="site-title">Geometría a Través del Tiempo</h1>
       <p class="site-subtitle">De la Prehistoria al Programa de Erlangen</p>
     </div>
+    <button
+      class="theme-toggle"
+      id="theme-toggle"
+      type="button"
+      aria-label="Cambiar a modo claro"
+    >☀</button>
   </header>
 
   <!-- ── Main Timeline ── -->

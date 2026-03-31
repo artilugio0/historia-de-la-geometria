@@ -8,6 +8,46 @@ import { renderTimeline, registerCallbacks } from './timeline.js';
 import { initNavigation, updateNavUI } from './navigation.js';
 import { initModal, openModal, closeModal, isModalOpen } from './modal.js';
 
+// ── Theme Management ──
+
+const DARK_BG  = '#0f0e17';
+const LIGHT_BG = '#f8f7ff';
+
+function initTheme(defaultTheme) {
+  let theme;
+  try { theme = localStorage.getItem('theme'); } catch (e) { theme = null; }
+  if (theme !== 'light' && theme !== 'dark') theme = defaultTheme || 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  _syncThemeButton(theme);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+
+  // If on start entry, update active-period-color to match new bg
+  const activePeriodColor = document.body.style.getPropertyValue('--active-period-color').toLowerCase();
+  if (activePeriodColor === DARK_BG || activePeriodColor === LIGHT_BG) {
+    document.body.style.setProperty('--active-period-color', next === 'light' ? LIGHT_BG : DARK_BG);
+  }
+
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch (e) {}
+  _syncThemeButton(next);
+}
+
+function _syncThemeButton(theme) {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  if (theme === 'light') {
+    btn.textContent = '☾';
+    btn.setAttribute('aria-label', 'Cambiar a modo oscuro');
+  } else {
+    btn.textContent = '☀';
+    btn.setAttribute('aria-label', 'Cambiar a modo claro');
+  }
+}
+
 let _periodBgImage = null;   // currently shown image
 let _targetImage = null;     // image we're transitioning toward
 let _periodBgTimer = null;
@@ -63,6 +103,9 @@ async function init() {
     return;
   }
 
+  // ── Wire Theme Toggle ──
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+
   // ── Initialize Modal ──
   initModal(modalOverlay);
 
@@ -83,7 +126,8 @@ async function init() {
     },
     onActivateStart: (startConfig) => {
       updateNavUI(navEl);
-      document.body.style.setProperty('--active-period-color', '#0F0E17');
+      const bg = getComputedStyle(document.documentElement).getPropertyValue('--color-bg').trim();
+      document.body.style.setProperty('--active-period-color', bg);
       setPeriodBackground(startConfig);
     },
     onOpenModal: (entry) => openModal(entry),
@@ -99,11 +143,12 @@ async function init() {
   // ── Load Data & Render ──
   try {
     await fetchTimeline();
-    const { title, subtitle } = getTimelineMeta();
+    const { title, subtitle, defaultTheme } = getTimelineMeta();
     const titleEl = document.querySelector('.site-title');
     const subtitleEl = document.querySelector('.site-subtitle');
     if (titleEl && title) titleEl.textContent = title;
     if (subtitleEl && subtitle) subtitleEl.textContent = subtitle;
+    initTheme(defaultTheme);
     renderTimeline(timelineWrapper);
     updateNavUI(navEl);
   } catch (err) {
