@@ -271,6 +271,18 @@
       "tags": ["Klein"]
     },
     {
+      "id": "hilbert-1899",
+      "periodId": "siglo_xix",
+      "year": 1899,
+      "yearLabel": "1899",
+      "sortKey": 1899,
+      "title": "Hilbert y los Fundamentos de la Geometría",
+      "summary": "David Hilbert publica 'Grundlagen der Geometría', axiomatizando rigurosamente la geometría euclídea con 21 axiomas.",
+      "body": "En 1899, David Hilbert publicó *Grundlagen der Geometrie* (Fundamentos de la Geometría), donde presentó un sistema axiomático completo y riguroso para la geometría euclídea (21 axiomas), eliminando cualquier dependencia de la intuición espacial o visual. Esta obra respondió a las dudas generadas por las geometrías no euclidianas y estableció un nuevo estándar de rigor en los fundamentos de las matemáticas, influyendo profundamente en la lógica y la matemática del siglo XX.",
+      "image": "assets/images/hilbert.jpg",
+      "tags": ["Hilbert"]
+    },
+    {
       "id": "poincare-1895",
       "periodId": "siglo_xx",
       "year": 1895,
