@@ -3,7 +3,7 @@
  * Navigation never imports modal directly — all wiring happens here.
  */
 
-import { fetchTimeline, getPeriod, getTimelineMeta } from './data.js';
+import { fetchTimeline, getPeriod, getTimelineMeta, getAllPeriods, getStart } from './data.js';
 import { renderTimeline, registerCallbacks } from './timeline.js';
 import { initNavigation, updateNavUI } from './navigation.js';
 import { initModal, openModal, closeModal, isModalOpen } from './modal.js';
@@ -48,9 +48,21 @@ function _syncThemeButton(theme) {
   }
 }
 
+function preloadBgImages() {
+  if (window.innerWidth <= 768) return;
+  const sources = [
+    getStart()?.image,
+    ...getAllPeriods().map(p => p.image),
+  ];
+  for (const src of sources) {
+    if (src) new Image().src = src;
+  }
+}
+
 let _periodBgImage = null;   // currently shown image
 let _targetImage = null;     // image we're transitioning toward
 let _periodBgTimer = null;
+let _bgGeneration  = 0;      // incremented on every new request to cancel stale transitions
 
 function setPeriodBackground(period) {
   if (window.innerWidth <= 768) return;
@@ -61,33 +73,38 @@ function setPeriodBackground(period) {
 
   _targetImage = next;
   clearTimeout(_periodBgTimer);
+  const gen = ++_bgGeneration;
 
-  _periodBgTimer = setTimeout(() => {
+  _periodBgTimer = setTimeout(async () => {
+    if (gen !== _bgGeneration) return;
+
     // Switched away and back — image already correct, just ensure it's visible
     if (_targetImage === _periodBgImage) {
       if (_targetImage) el.classList.add('is-visible');
       return;
     }
 
+    // Fade out whatever is currently showing
     if (_periodBgImage) {
-      // Fade out current, then swap in target
       el.classList.remove('is-visible');
-      _periodBgTimer = setTimeout(() => {
-        _periodBgImage = _targetImage;
-        if (_targetImage) {
-          el.style.backgroundImage = `url('${_targetImage}')`;
-          requestAnimationFrame(() => el.classList.add('is-visible'));
-        } else {
-          el.style.backgroundImage = '';
-        }
-      }, 500);
+      await new Promise(r => setTimeout(r, 500));
+      if (gen !== _bgGeneration) return;
+    }
+
+    _periodBgImage = _targetImage;
+
+    if (_targetImage) {
+      // Decode before fading in so the image is pixel-ready on frame 1
+      const img = new Image();
+      img.src = _targetImage;
+      try { await img.decode(); } catch (e) { /* show anyway if decode fails */ }
+      if (gen !== _bgGeneration) return;
+      el.style.backgroundImage = `url('${_targetImage}')`;
+      requestAnimationFrame(() => {
+        if (gen === _bgGeneration) el.classList.add('is-visible');
+      });
     } else {
-      // Nothing currently shown — set and fade in
-      _periodBgImage = _targetImage;
-      if (_targetImage) {
-        el.style.backgroundImage = `url('${_targetImage}')`;
-        requestAnimationFrame(() => el.classList.add('is-visible'));
-      }
+      el.style.backgroundImage = '';
     }
   }, 350);
 }
@@ -149,6 +166,7 @@ async function init() {
     if (titleEl && title) titleEl.textContent = title;
     if (subtitleEl && subtitle) subtitleEl.textContent = subtitle;
     initTheme(defaultTheme);
+    preloadBgImages();
     renderTimeline(timelineWrapper);
     updateNavUI(navEl);
   } catch (err) {
