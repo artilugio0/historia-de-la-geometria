@@ -1,97 +1,116 @@
 {
   "title": "Geometría a Través del Tiempo",
-  "subtitle": "De la Prehistoria al Programa de Erlangen",
+  "subtitle": "De las antiguas civilizaciones a la actualidad",
   "start": {
     "label": "Inicio",
-    "image": "assets/images/euclides.jpg"
+    "image": "assets/images/geometry1.jpg"
   },
   "periods": [
     {
-      "id": "prehistoria",
-      "label": "Prehistoria y Antigüedad",
+      "id": "primeras_civilizaciones",
+      "label": "Geometría en las Primeras Civilizaciones",
       "color": "#7B5EA7",
       "accentColor": "#B89FD8",
-      "image": null
-    },
-    {
-      "id": "antiguedad",
-      "label": "Antigüedad",
-      "color": "#6B4E9C",
-      "accentColor": "#A38ED4",
-      "image": null
+      "image": "assets/images/antiguas.jpg"
     },
     {
       "id": "grecia",
-      "label": "Grecia Clásica",
+      "label": "Geometría en Grecia",
       "color": "#2E6B8A",
       "accentColor": "#6BAAC8",
-      "image": null
+      "image": "assets/images/greece.jpg"
     },
     {
-      "id": "islamico",
-      "label": "Mundo Islamico",
+      "id": "edad_media",
+      "label": "Edad Media",
       "color": "#6B4E9C",
       "accentColor": "#A38ED4",
-      "image": null
+      "image": "assets/images/media.jpg"
     },
     {
       "id": "renacimiento",
-      "label": "Renacimiento",
+      "label": "El Renacimiento",
       "color": "#8A5A2E",
       "accentColor": "#C8956B",
-      "image": null
+      "image": "assets/images/renaissance.jpg"
     },
     {
-      "id": "moderna",
-      "label": "Geometría Moderna (S. XVII-XVIII)",
+      "id": "edad_moderna",
+      "label": "La Edad Moderna",
       "color": "#2E7A4F",
       "accentColor": "#6BC49A",
-      "image": null
+      "image": "assets/images/cartesiano.png"
     },
     {
-      "id": "sigloXIX",
-      "label": "Siglo XIX",
+      "id": "siglo_xix",
+      "label": "La Revolución del Siglo XIX",
       "color": "#8A2E2E",
       "accentColor": "#C86B6B",
-      "image": null
+      "image": "assets/images/riemmsurf.png"
+    },
+    {
+      "id": "siglo_xx",
+      "label": "El Siglo XX: Abstracción y Estructura",
+      "color": "#2E4A7A",
+      "accentColor": "#6B8AC8",
+      "image": "assets/images/mandelbrot.jpg"
+    },
+    {
+      "id": "siglo_xxi",
+      "label": "Siglo XXI",
+      "color": "#4A2E8A",
+      "accentColor": "#8B6BC8",
+      "image": "assets/images/poincare.png"
     }
   ],
   "entries": [
     {
-      "id": "prehistoria-1",
-      "periodId": "prehistoria",
-      "year": null,
-      "yearLabel": "Prehistoria",
-      "sortKey": -10000,
-      "title": "Bases Prehistóricas de la Geometría",
-      "summary": "Las primeras civilizaciones usaban la geometría con un carácter puramente práctico para resolver problemas concretos.",
-      "body": "Gran parte de las bases de la geometría pueden ser prehistóricas. Las primeras civilizaciones utilizaban la geometría con un carácter puramente práctico para resolver problemas concretos: medir tierras, construir edificios, orientarse por las estrellas. No existía aún un sistema abstracto de conceptos, sino un conjunto de reglas empíricas transmitidas de generación en generación. Esta geometría práctica fue el suelo fértil sobre el cual las civilizaciones posteriores construirían el edificio formal de la disciplina.",
-      "image": null,
-      "tags": ["fundamentos", "práctica", "prehistoria"]
+      "id": "egipto-2000",
+      "periodId": "primeras_civilizaciones",
+      "year": -2000,
+      "yearLabel": "~2000 a.C.",
+      "sortKey": -2000,
+      "title": "Agrimensura en el Antiguo Egipto",
+      "summary": "La geometría egipcia fue una ciencia práctica nacida de la necesidad de medir tierras tras las crecidas del Nilo.",
+      "body": "Los agrimensores egipcios, conocidos como 'tensadores de cuerdas', usaban cuerdas con doce nudos equidistantes para trazar ángulos rectos perfectos basados en el triángulo 3-4-5. Sus conocimientos les permitían calcular con precisión áreas de triángulos y volúmenes de pirámides truncadas para la construcción de sus monumentos.",
+      "image": "assets/images/egipto.png",
+      "tags": ["Egipto"]
     },
     {
-      "id": "egipto-babilonia",
-      "periodId": "antiguedad",
-      "year": -3000,
-      "yearLabel": "~3000-2000 a.C.",
-      "sortKey": -3000,
-      "title": "Orígenes Prácticos en Egipto y Babilonia",
-      "summary": "Geometría aplicada para agrimensura, construcción de pirámides y cálculo de áreas y volúmenes.",
-      "body": "Las civilizaciones egipcia y babilonia desarrollaron geometría práctica para agrimensura, construcción de pirámides y templos, y cálculo de áreas/volúmenes (Papiro Rhind, tablillas babilonias). Incluían aproximaciones al π y relaciones pitagóricas. La geometría nace aquí como 'medición de la tierra', no como ciencia abstracta.",
-      "image": null,
-      "tags": ["Egipto", "Babilonia", "práctica", "agrimensura"]
+      "id": "babilonia-1800",
+      "periodId": "primeras_civilizaciones",
+      "year": -1800,
+      "yearLabel": "~1800 a.C.",
+      "sortKey": -1800,
+      "title": "Babilonia",
+      "summary": "Los babilonios desarrollaron un sistema sexagesimal y conocimientos avanzados sobre áreas y ternas numéricas.",
+      "body": "Utilizaron la astronomía para dividir la circunferencia en 360 grados y conocían aproximaciones precisas de π. Registraron relaciones entre los lados de triángulos rectángulos en tablillas como la Plimpton 322 siglos antes de los griegos, además de emplear fórmulas para calcular el área del trapecio rectángulo.",
+      "image": "assets/images/babilonia.jpg",
+      "tags": ["Babilonia"]
     },
     {
-      "id": "grecia-antigua",
+      "id": "india-sulba",
+      "periodId": "primeras_civilizaciones",
+      "year": -650,
+      "yearLabel": "800-500 a.C.",
+      "sortKey": -650,
+      "title": "La Geometría de los Sulba-Sutras en la India",
+      "summary": "En la India védica se desarrollaron reglas geométricas para la construcción precisa de altares de sacrificio.",
+      "body": "Los textos conocidos como Sulba-Sutras contienen enunciados del teorema de Pitágoras y listas de ternas pitagóricas mucho antes de la era helenística. Estos geómetras establecieron reglas para transformar un cuadrado en un círculo de área equivalente y para dividir figuras complejas en partes iguales con gran rigor práctico.",
+      "image": "assets/images/sulbasutras.webp",
+      "tags": ["Sulba-Sutras"]
+    },
+    {
+      "id": "grecia-antes-euclides",
       "periodId": "grecia",
       "year": -500,
-      "yearLabel": "Antigua Grecia",
+      "yearLabel": "Siglos VI-IV a.C.",
       "sortKey": -500,
-      "title": "Geometría en la Antigua Grecia",
-      "summary": "Tales, Pitágoras, Arquímedes y Apolonio desarrollaron la geometría griega, cuyas obras fueron las más influyentes para el futuro de la disciplina.",
-      "body": "La Antigua Grecia fue el escenario donde la geometría se transformó de arte práctico en ciencia deductiva. Tales de Mileto introdujo la demostración lógica como fundamento del conocimiento geométrico. Pitágoras y los pitagóricos elevaron la geometría a dimensión filosófica, encontrando en los números y las formas la estructura del universo. Arquímedes llevó el cálculo de áreas y volúmenes a una precisión sin precedentes, anticipando conceptos del cálculo infinitesimal. Apolonio sistematizó el estudio de las cónicas —elipse, parábola, hipérbola— en una obra que influiría durante siglos. Juntos, estos pensadores establecieron el modelo de rigor deductivo que definiría las matemáticas hasta el día de hoy.",
-      "image": null,
-      "tags": ["Tales", "Pitágoras", "Arquímedes", "Apolonio", "deducción"]
+      "title": "Grecia antes de Euclides",
+      "summary": "La geometría pasó de ser una herramienta práctica a una ciencia formal basada en la demostración lógica.",
+      "body": "Matemáticos como Tales de Mileto y Pitágoras comenzaron a organizar los conocimientos en teoremas universales donde la veracidad dependía de un razonamiento deductivo. Durante este periodo, la Academia de Platón consolidó la idea de que la geometría era la base de todo saber racional y propedéutica para la filosofía.",
+      "image": "assets/images/pitagoras.jpg",
+      "tags": ["Tales", "Pitágoras", "Platón"]
     },
     {
       "id": "euclides-300",
@@ -99,155 +118,203 @@
       "year": -300,
       "yearLabel": "~300 a.C.",
       "sortKey": -300,
-      "title": "Los Elementos de Euclides",
-      "summary": "Euclides cristaliza los conceptos abstractos de la geometría en 13 volúmenes con 5 postulados que definieron el pensamiento deductivo por milenios.",
-      "body": "Alrededor del año 300 a.C., Euclides de Alejandría redactó 'Los Elementos', una obra de 13 volúmenes que se convertiría en el texto matemático más influyente de todos los tiempos. En ella, Euclides cristaliza conceptos abstractos como punto, recta y círculo, y establece los 5 postulados sobre los que edifica toda la geometría euclídea. El método axiomático de Euclides —partir de definiciones y postulados para llegar por deducción lógica a teoremas— estableció el estándar del pensamiento matemático riguroso durante más de dos milenios. El quinto postulado, sobre las paralelas, sería el semillero de las geometrías no euclídeas siglos después.",
-      "image": null,
-      "tags": ["Euclides", "postulados", "axiomas", "deducción", "Los Elementos"]
+      "title": "Euclides y 'Los Elementos'",
+      "summary": "Euclides sistematizó la geometría en un modelo axiomático-deductivo que se convirtió en el estándar matemático por dos milenios.",
+      "body": "En sus trece volúmenes, Euclides cristalizó conceptos abstractos como el punto y la recta a partir de 23 definiciones y cinco postulados fundamentales. Su obra permitió deducir lógicamente más de 400 proposiciones, estableciendo el 'estilo euclidiano' como el patrón canónico de rigor científico en Occidente.",
+      "image": "assets/images/euclides.jpg",
+      "tags": ["Euclides"]
     },
     {
-      "id": "islamico",
-      "periodId": "islamico",
+      "id": "arquimedes-apolonio",
+      "periodId": "grecia",
+      "year": -250,
+      "yearLabel": "Siglo III a.C.",
+      "sortKey": -250,
+      "title": "Arquímedes y Apolonio: nuevas curvas",
+      "summary": "Tras Euclides, la geometría griega alcanzó su madurez con el estudio exhaustivo de curvas y volúmenes complejos.",
+      "body": "Arquímedes introdujo una geometría 'cinética' para calcular el volumen de la esfera y áreas bajo parábolas, mientras que Apolonio de Perge analizó profundamente las secciones cónicas: elipse, parábola e hipérbola. En este periodo tambien se estudiaron problemas clásicos irresolubles solo con regla y compás, como la duplicación del cubo, la trisección del ángulo, y la cuadratura del circulo",
+      "image": "assets/images/archimedes.jpg",
+      "tags": ["Arquímedes", "Apolonio"]
+    },
+    {
+      "id": "edad-media-estancamiento",
+      "periodId": "edad_media",
+      "year": 600,
+      "yearLabel": "Siglos V-XV",
+      "sortKey": 600,
+      "title": "Estancamiento de la Geometría en Occidente",
+      "summary": "Durante el medievo europeo, la disciplina no experimentó avances teóricos significativos y se limitó a la conservación de textos antiguos.",
+      "body": "En las universidades medievales, la geometría era una de las siete artes liberales del Quadrivium, pero su enseñanza se reducía a repetir fragmentos de los 'Elementos' de Euclides sin generar nuevas teorías. El conocimiento permaneció en gran medida estático hasta que las traducciones del árabe reintrodujeron los textos clásicos a Europa en el siglo XII.",
+      "image": "assets/images/middle2.jpg",
+      "tags": ["Edad Media"]
+    },
+    {
+      "id": "mundo-arabe",
+      "periodId": "edad_media",
       "year": 900,
-      "yearLabel": "Siglos IX-XII",
+      "yearLabel": "Siglos IX-XI",
       "sortKey": 900,
-      "title": "Matemáticos del Mundo Islámico",
-      "summary": "Al-Juarismi, Omar Khayyam y Nasir al-Din al-Tusi preservan y amplían los Elementos de Euclides, con avances en cónicas y trigonometría.",
-      "body": "Durante la Edad de Oro del Islam, matemáticos como Al-Juarismi, Thabit ibn Qurra, Omar Khayyam y Nasir al-Din al-Tusi tradujeron, comentaron y enriquecieron los Elementos de Euclides. Realizaron avances en el estudio de cónicas, trigonometría esférica y geometría algebraica incipiente. Algunos, como al-Tusi, trabajaron en alternativas al quinto postulado, sirviendo de puente esencial entre la geometría griega y el Renacimiento europeo.",
-      "image": null,
-      "tags": ["Al-Juarismi", "Khayyam", "al-Tusi", "preservación", "trigonometría"]
+      "title": "Preservación y avances en el Mundo Árabe",
+      "summary": "Matemáticos árabes preservaron el legado griego y realizaron avances clave en el tratamiento algebraico de la geometría.",
+      "body": "Al-Kwarizmi y Alhazen tradujeron a Euclides y Apolonio, mientras desarrollaban soluciones geométricas para ecuaciones de segundo y tercer grado. Sus estudios sobre óptica y espejos cóncavos aplicaron la geometría de una manera que influyó profundamente en el desarrollo posterior de la perspectiva renacentista.",
+      "image": "assets/images/alkwarizmi.avif",
+      "tags": ["Al-Kwarizmi", "Alhazen"]
     },
     {
-      "id": "renacimiento-1",
+      "id": "oresme-1350",
+      "periodId": "edad_media",
+      "year": 1350,
+      "yearLabel": "Siglo XIV",
+      "sortKey": 1350,
+      "title": "Nicole Oresme y la representación de funciones",
+      "summary": "Oresme dio los primeros pasos hacia la geometría analítica mediante el uso de coordenadas para representar cambios de intensidad.",
+      "body": "El teólogo francés introdujo un sistema de 'latitudes y longitudes' para graficar cómo variaban las cualidades de los objetos, anticipando el concepto de función. Su trabajo permitió representar visualmente el movimiento y las variaciones físicas, sirviendo como un puente conceptual entre la geometría estática antigua y la moderna.",
+      "image": "assets/images/oresme.jpg",
+      "tags": ["Oresme"]
+    },
+    {
+      "id": "pacioli-1509",
       "periodId": "renacimiento",
-      "year": 1450,
-      "yearLabel": "Renacimiento",
-      "sortKey": 1450,
-      "title": "El Renacimiento y la Geometría",
-      "summary": "Regiomontanus y Luca Pacioli retoman los intereses griegos, dotando de valor numérico a las cantidades geométricas y resucitando el misticismo de la divina proporción.",
-      "body": "Durante el Renacimiento, Europa redescubrió los textos griegos y les infundió nueva vida. Regiomontanus (Johannes Müller) reprodujo los Elementos de Euclides dotando de valor numérico a las cantidades geométricas, acercando la geometría a la aritmética y sentando bases para la geometría analítica. Luca Pacioli, en su obra 'De Divina Proportione', resucitó el misticismo griego en torno a la proporción áurea, ilustrada por el propio Leonardo da Vinci. El Renacimiento no sólo recuperó la geometría griega sino que la puso al servicio del arte, la arquitectura y la perspectiva pictórica, abriendo caminos que llevarían a las grandes revoluciones matemáticas del siglo XVII.",
-      "image": null,
-      "tags": ["Regiomontanus", "Pacioli", "divina proporción", "perspectiva"]
-    },
-    {
-      "id": "descartes-1637",
-      "periodId": "moderna",
-      "year": 1637,
-      "yearLabel": "1637",
-      "sortKey": 1637,
-      "title": "Descartes y la Geometría Analítica",
-      "summary": "Descartes publica el 'Discurso del método' y en su apéndice nace la geometría analítica, uniendo geometría y álgebra por primera vez.",
-      "body": "En 1637, René Descartes publicó el 'Discurso del método', obra fundacional de la matemática moderna. Su tercer apéndice, 'La Géométrie', introduce la geometría analítica: la representación de figuras geométricas mediante ecuaciones algebraicas en un sistema de coordenadas. Esta fusión entre geometría y álgebra fue revolucionaria: los problemas geométricos podían resolverse algebraicamente y viceversa. En la misma época, Pierre de Fermat desarrolló de manera independiente una geometría analítica más sencilla y completa que la de Descartes, aunque no la publicó en vida. La geometría analítica abrió la puerta al cálculo diferencial e integral de Newton y Leibniz.",
-      "image": null,
-      "tags": ["Descartes", "Fermat", "coordenadas", "álgebra", "analítica"]
+      "year": 1509,
+      "yearLabel": "1509",
+      "sortKey": 1509,
+      "title": "Luca Pacioli y la 'Divina Proporción'",
+      "summary": "El Renacimiento vinculó la geometría con el ideal estético a través del estudio de las proporciones místicas.",
+      "body": "Luca Pacioli publicó una influyente obra que analizaba la proporción áurea y su presencia en la naturaleza y el arte, ilustrada con poliedros dibujados por Leonardo da Vinci. Este enfoque resucitó el misticismo pitagórico y promovió el uso de sólidos regulares como base para el diseño arquitectónico y pictórico.",
+      "image": "assets/images/pacioli.jpg",
+      "tags": ["Pacioli"]
     },
     {
       "id": "desargues-1639",
-      "periodId": "moderna",
-      "year": 1639,
-      "yearLabel": "1639",
-      "sortKey": 1639,
-      "title": "Desargues y la Geometría Proyectiva",
-      "summary": "El arquitecto Girard Desargues idea la geometría proyectiva, donde las rectas paralelas se encuentran en el infinito y las propiedades de perspectiva son primordiales.",
-      "body": "En 1639, el arquitecto y matemático francés Girard Desargues publicó su tratado sobre geometría proyectiva, motivado por los problemas de perspectiva en arquitectura y pintura. En su sistema, las rectas paralelas se encuentran en un 'punto en el infinito', y el plano se extiende con una 'recta en el infinito'. La geometría proyectiva se centra en las propiedades de incidencia que se preservan bajo proyección, prescindiendo de medidas de distancia y ángulo. Aunque su obra fue ignorada durante años, sería redescubierta en el siglo XIX por Poncelet y otros, convirtiéndose en uno de los pilares de la geometría moderna.",
-      "image": null,
-      "tags": ["Desargues", "proyectiva", "perspectiva", "infinito"]
+      "periodId": "renacimiento",
+      "year": 1630,
+      "yearLabel": "1630",
+      "sortKey": 1630,
+      "title": "El nacimiento de la Geometría Proyectiva",
+      "summary": "Girard Desargues formalizó el estudio de las propiedades que permanecen invariantes al proyectar una figura.",
+      "body": "En 1639, Desargues introdujo la idea revolucionaria de que las rectas paralelas se cortan en un 'punto infinito', centrando el estudio en la incidencia y no en la medida. Aunque inicialmente incomprendida por sus contemporáneos, esta geometría fue el primer sistema consistente que desafió la noción euclidiana del espacio.",
+      "image": "assets/images/desargues.jpeg",
+      "tags": ["Desargues"]
     },
     {
-      "id": "siglos-xviii-xix",
-      "periodId": "moderna",
-      "year": 1700,
-      "yearLabel": "S. XVIII–XIX",
-      "sortKey": 1700,
-      "title": "Avances en los Siglos XVIII y XIX",
-      "summary": "Bernoulli, Euler, Monge, Möbius y Cayley amplían y generalizan la geometría hacia nuevas dimensiones y coordenadas.",
-      "body": "Los siglos XVIII y XIX fueron testigos de una expansión extraordinaria de la geometría. Bernoulli introdujo las coordenadas polares, abriendo nuevas formas de describir curvas. Maclaurin extendió los estudios sobre cónicas. Euler proporcionó ecuaciones para cilindros y conos, sistematizando la geometría del espacio tridimensional. Gaspard Monge estructuró la geometría descriptiva, la representación de objetos tridimensionales en el plano, base del dibujo técnico moderno. August Ferdinand Möbius introdujo las coordenadas homogéneas, unificando la geometría euclidiana y proyectiva. Arthur Cayley generalizó la geometría a cualquier número de dimensiones, anticipando la geometría abstracta del siglo XX.",
-      "image": null,
-      "tags": ["Bernoulli", "Euler", "Monge", "Möbius", "Cayley", "dimensiones"]
+      "id": "descartes-1637",
+      "periodId": "edad_moderna",
+      "year": 1637,
+      "yearLabel": "1637",
+      "sortKey": 1637,
+      "title": "La Geometría Analítica de Descartes y Fermat",
+      "summary": "La introducción de coordenadas permitió representar figuras geométricas mediante ecuaciones algebraicas.",
+      "body": "René Descartes publicó 'La Géométrie' en 1637, estableciendo una correspondencia exacta entre curvas planas y ecuaciones de dos variables, lo que liberó a la disciplina del uso exclusivo de regla y compás. Pierre de Fermat desarrolló simultáneamente un método similar, sentando ambos las bases para el futuro desarrollo del cálculo infinitesimal.",
+      "image": "assets/images/descartes.png",
+      "tags": ["Descartes", "Fermat"]
     },
     {
-      "id": "saccheri-1773",
-      "periodId": "moderna",
-      "year": 1773,
-      "yearLabel": "1773",
-      "sortKey": 1773,
-      "title": "Saccheri y el Quinto Postulado",
-      "summary": "Saccheri intenta demostrar el quinto postulado de Euclides pero sus teoremas, sin saberlo, fundan la geometría no euclídea.",
-      "body": "Giovanni Girolamo Saccheri murió en 1773, el mismo año en que se publicó póstumamente su obra 'Euclides ab omni naevo vindicatus' (Euclides libre de toda mancha). Su objetivo era demostrar el quinto postulado de Euclides —sobre las paralelas— por reducción al absurdo, asumiendo su negación y buscando contradicciones. Aunque creyó haberlo logrado, en realidad dedujo teoremas válidos de una geometría diferente, sin reconocerlo por temor a contradecir la autoridad de Euclides. Su trabajo dejó un legado involuntario: los teoremas que probó serían identificados décadas después como parte de la geometría hiperbólica, la primera geometría no euclídea.",
-      "image": null,
-      "tags": ["Saccheri", "quinto postulado", "no euclídea", "hiperbólica"]
+      "id": "euler-1752",
+      "periodId": "edad_moderna",
+      "year": 1752,
+      "yearLabel": "1752",
+      "sortKey": 1752,
+      "title": "Euler y la Característica de los Poliedros",
+      "summary": "Euler descubrió una propiedad estructural de los poliedros que no dependía de medidas, iniciando la topología.",
+      "body": "En 1752, Leonhard Euler demostró que para cualquier poliedro convexo la relación Vértices - Aristas + Caras siempre es igual a 2 (V-A+C=2). Este hallazgo fue revolucionario porque identificaba un 'invariante' que permanecía constante sin importar el tamaño o la forma del objeto, desplazando el interés hacia la estructura intrínseca de los entes geométricos.",
+      "image": "assets/images/euler.jpg",
+      "tags": ["Euler"]
     },
     {
       "id": "gauss-1827",
-      "periodId": "sigloXIX",
+      "periodId": "siglo_xix",
       "year": 1827,
       "yearLabel": "1827",
       "sortKey": 1827,
-      "title": "Gauss y la Geometría Diferencial",
-      "summary": "Gauss publica 'Disquisitiones generales circa superficies curvas', marcando el nacimiento de la geometría diferencial.",
-      "body": "En 1827, Carl Friedrich Gauss publicó sus 'Disquisitiones generales circa superficies curvas' (Disquisiciones sobre superficies curvas), obra fundacional de la geometría diferencial. Gauss demostró su célebre 'theorema egregium': la curvatura gaussiana de una superficie es una propiedad intrínseca, independiente de cómo la superficie esté inmersa en el espacio. Esto significaba que los seres que viven sobre la superficie pueden determinar su geometría sin salir de ella. Este resultado revolucionó la concepción del espacio y preparó el terreno para la geometría riemanniana y, eventualmente, para la teoría general de la relatividad de Einstein.",
-      "image": null,
-      "tags": ["Gauss", "diferencial", "curvatura", "superficies"]
+      "title": "Geometría Diferencial y Curvatura (Gauss)",
+      "summary": "Carl Friedrich Gauss aplicó el cálculo para estudiar las propiedades locales de las superficies curvas.",
+      "body": "En 1827, Gauss definió la curvatura intrínseca y demostró que esta se puede medir sin salir de la superficie, a través del camino más corto o geodésica. Sus hallazgos evidenciaron que en superficies curvas los triángulos no siempre suman 180 grados, lo que supuso la primera contradicción práctica al sistema de Euclides.",
+      "image": "assets/images/gauss.jpg",
+      "tags": ["Gauss"]
     },
     {
-      "id": "lobachevsky-1830",
-      "periodId": "sigloXIX",
+      "id": "no-euclidianas-1830",
+      "periodId": "siglo_xix",
       "year": 1830,
       "yearLabel": "~1830",
       "sortKey": 1830,
-      "title": "Geometría Hiperbólica: Lobachevsky y Bolyai",
-      "summary": "Lobachevsky y Bolyai demuestran la independencia del quinto postulado de Euclides, estableciendo la existencia de la geometría hiperbólica.",
-      "body": "Alrededor de 1830, el matemático ruso Nikolái Lobachevsky y el húngaro János Bolyai, trabajando de forma independiente, demostraron que el quinto postulado de Euclides es independiente de los otros cuatro: puede ser negado sin contradicción, dando lugar a geometrías coherentes. En la geometría hiperbólica que ambos construyeron, por un punto exterior a una recta pasan infinitas paralelas a ella, y la suma de los ángulos de un triángulo es menor que 180°. Este descubrimiento fue una revolución conceptual: demostró que la geometría euclídea no es la única posible, liberando a las matemáticas de la creencia de que describían la realidad física de forma única y necesaria.",
-      "image": null,
-      "tags": ["Lobachevsky", "Bolyai", "hiperbólica", "no euclídea", "postulado"]
-    },
-    {
-      "id": "beltrami-1868",
-      "periodId": "sigloXIX",
-      "year": 1868,
-      "yearLabel": "1868",
-      "sortKey": 1868,
-      "title": "Beltrami y los Modelos de Geometría Hiperbólica",
-      "summary": "Eugenio Beltrami proporciona los primeros modelos concretos (pseudoesfera y modelo proyectivo) de la geometría hiperbólica, probando su consistencia.",
-      "body": "En 1868, el matemático italiano Eugenio Beltrami publicó modelos concretos de la geometría hiperbólica de Lobachevsky y Bolyai (incluyendo la pseudoesfera y el modelo proyectivo, hoy conocido como Beltrami-Klein). Estos modelos permitieron visualizar y demostrar que las geometrías no euclidianas son tan consistentes como la euclídea, al interpretarlas dentro del marco euclidiano. Esto validó definitivamente las nuevas geometrías y facilitó su aceptación.",
-      "image": null,
-      "tags": ["Beltrami", "modelos", "hiperbólica", "pseudoesfera"]
+      "title": "Descubrimiento de las Geometrías No Euclidianas",
+      "summary": "Bolyai y Lobatchevsky demostraron que es posible construir sistemas geométricos consistentes sin el postulado de las paralelas.",
+      "body": "Alrededor de 1830, estos matemáticos evidenciaron que el quinto postulado de Euclides es independiente de los demás, creando la geometría hiperbólica donde por un punto exterior a una recta pasan infinitas paralelas. Este hito rompió con la idea de que la geometría euclidiana era la única verdad absoluta sobre el espacio.",
+      "image": "assets/images/lobachevsky.jpg",
+      "tags": ["Bolyai", "Lobachevsky"]
     },
     {
       "id": "riemann-1854",
-      "periodId": "sigloXIX",
+      "periodId": "siglo_xix",
       "year": 1854,
       "yearLabel": "1854",
       "sortKey": 1854,
-      "title": "Riemann y la Geometría Riemanniana",
-      "summary": "Riemann presenta su tesis de habilitación unificando todas las geometrías a través de una métrica particular, creando la geometría riemanniana.",
-      "body": "En 1854, Bernhard Riemann presentó su tesis de habilitación 'Über die Hypothesen, welche der Geometrie zu Grunde liegen' (Sobre las hipótesis en las que se basa la geometría), ante un tribunal que incluía al propio Gauss. Riemann propuso una visión radicalmente general de la geometría: el espacio puede tener cualquier número de dimensiones y en cada punto puede definirse una métrica que determine cómo se miden distancias y ángulos. Esta métrica puede variar de un punto a otro. La geometría riemanniana engloba como casos particulares la geometría euclídea, la hiperbólica y la esférica. Seis décadas después, Einstein usaría exactamente este marco matemático para formular la teoría general de la relatividad.",
-      "image": null,
-      "tags": ["Riemann", "métrica", "variedades", "dimensiones", "relatividad"]
+      "title": "La Generalización de Riemann y las Variedades",
+      "summary": "Bernhard Riemann unificó todas las geometrías bajo el concepto de 'variedad' dotada de una métrica.",
+      "body": "En 1854, Riemann propuso que el espacio puede tener cualquier número de dimensiones y que su geometría está determinada por una métrica particular. Esta visión permitió estudiar tanto la geometría euclidiana como las no euclidianas en un mismo marco, proporcionando la base matemática para la Teoría de la Relatividad de Einstein.",
+      "image": "assets/images/riemann.jpg",
+      "tags": ["Riemann"]
     },
     {
       "id": "klein-1872",
-      "periodId": "sigloXIX",
+      "periodId": "siglo_xix",
       "year": 1872,
       "yearLabel": "1872",
       "sortKey": 1872,
-      "title": "Klein y el Programa de Erlangen",
-      "summary": "Felix Klein clasifica todas las geometrías mediante la noción de grupo de transformaciones, unificando la disciplina en el Programa de Erlangen.",
-      "body": "En 1872, Felix Klein publicó su 'Vergleichende Betrachtungen über neuere geometrische Forschungen', conocido como el Programa de Erlangen. En este documento, Klein propuso una definición unificadora: cada geometría puede caracterizarse por un grupo de transformaciones que preservan ciertas propiedades. La geometría euclídea queda definida por las isometrías; la proyectiva, por las homografías; la afín, por las transformaciones afines. Este enfoque grupista no sólo clasificó todas las geometrías conocidas, sino que proporcionó un criterio para reconocer nuevas geometrías en el futuro. El Programa de Erlangen marcó la madurez de la geometría como disciplina capaz de definirse a sí misma con pleno rigor matemático.",
-      "image": null,
-      "tags": ["Klein", "Erlangen", "grupos", "transformaciones", "clasificación"]
+      "title": "El Programa de Erlangen de Klein",
+      "summary": "Klein definió la geometría como el estudio de las propiedades que permanecen invariantes bajo un grupo de transformaciones.",
+      "body": "En 1872, Klein utilizó la noción algebraica de grupo para clasificar y definir rigurosamente qué es una geometría. Su propuesta demostró que los métodos analíticos y sintéticos estudiaban en realidad los mismos objetos bajo diferentes transformaciones, terminando con la histórica distinción entre ambos métodos.",
+      "image": "assets/images/klein.jpeg",
+      "tags": ["Klein"]
     },
     {
-      "id": "hilbert-1899",
-      "periodId": "sigloXIX",
-      "year": 1899,
-      "yearLabel": "1899",
-      "sortKey": 1899,
-      "title": "Hilbert y los Fundamentos de la Geometría",
-      "summary": "David Hilbert publica 'Grundlagen der Geometría', axiomatizando rigurosamente la geometría euclídea con 21 axiomas.",
-      "body": "En 1899, David Hilbert publicó *Grundlagen der Geometrie* (Fundamentos de la Geometría), donde presentó un sistema axiomático completo y riguroso para la geometría euclídea (21 axiomas), eliminando cualquier dependencia de la intuición espacial o visual. Esta obra respondió a las dudas generadas por las geometrías no euclidianas y estableció un nuevo estándar de rigor en los fundamentos de las matemáticas, influyendo profundamente en la lógica y la matemática del siglo XX.",
-      "image": null,
-      "tags": ["Hilbert", "axiomas", "fundamentos", "rigor"]
+      "id": "poincare-1895",
+      "periodId": "siglo_xx",
+      "year": 1895,
+      "yearLabel": "1895",
+      "sortKey": 1895,
+      "title": "Henri Poincaré y el nacimiento de la Topología",
+      "summary": "Poincaré formalizó el estudio de los aspectos cualitativos de las figuras que no cambian ante deformaciones continuas.",
+      "body": "Con la publicación de 'Analysis Situs' en 1895, Poincaré estableció una geometría cualitativa que prescinde de medidas exactas para centrarse en la conectividad de los espacios. Sus herramientas de homología permitieron clasificar formas espaciales complejas, transformando la geometría en una disciplina fundamental para entender la estructura global de las variedades.",
+      "image": "assets/images/poincare.jpg",
+      "tags": ["Poincaré"]
+    },
+    {
+      "id": "grothendieck-1950",
+      "periodId": "siglo_xx",
+      "year": 1955,
+      "yearLabel": "1950-1960",
+      "sortKey": 1955,
+      "title": "La Geometría Algebraica Moderna",
+      "summary": "Alexander Grothendieck revolucionó esta rama al unificarla con la teoría de números mediante el concepto de 'esquemas'.",
+      "body": "Grothendieck reformuló los fundamentos de la geometría algebraica utilizando el lenguaje de categorías, lo que permitió estudiar curvas sobre cualquier cuerpo bajo un marco común. Sus aportaciones simplificaron problemas masivos y permitieron que la geometría se aplicara a campos tan abstractos como la aritmética de números complejos.",
+      "image": "assets/images/grothendieck.jpg",
+      "tags": ["Grothendieck"]
+    },
+    {
+      "id": "mandelbrot-1975",
+      "periodId": "siglo_xx",
+      "year": 1975,
+      "yearLabel": "1975",
+      "sortKey": 1975,
+      "title": "Geometría Fractal y la Complejidad",
+      "summary": "Benoît Mandelbrot introdujo una nueva geometría para describir las formas irregulares y fragmentadas presentes en la naturaleza.",
+      "body": "En 1975, Mandelbrot acuñó el término 'fractal' para referirse a objetos con autosemejanza en todas las escalas, como nubes o costas. Esta geometría rompió con la tradición de las formas suaves de Euclides, permitiendo modelar sistemas dinámicos no lineales y fenómenos biológicos con un rigor antes imposible.",
+      "image": "assets/images/mandelbrotphoto.jpg",
+      "tags": ["Mandelbrot"]
+    },
+    {
+      "id": "perelman-2003",
+      "periodId": "siglo_xxi",
+      "year": 2003,
+      "yearLabel": "2003",
+      "sortKey": 2003,
+      "title": "La Resolución de la Conjetura de Poincaré",
+      "summary": "Grigori Perelman resolvió un problema de un siglo de antigüedad sobre la caracterización de la esfera tridimensional.",
+      "body": "En 2003, el matemático ruso Perelman completó la demostración de este reto topológico utilizando el 'flujo de Ricci' para alisar singularidades geométricas. Su trabajo cerró un capítulo fundamental de la topología y le valió la Medalla Fields en 2006, la cual rechazó.",
+      "image": "assets/images/perelman.jpg",
+      "tags": ["Perelman"]
     }
   ]
 }
